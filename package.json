@@ -1,0 +1,9 @@
+{
+  "name": "op-timeline-plugin",
+  "version": "2.0.0-dev",
+  "repository": "https://github.com/upsilon/opTimelinePlugin.git",
+  "author": "Kimura Youichi <kim.upsilon@bucyou.net>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {}
+}
