@@ -1,0 +1,4 @@
+autoload:
+  opTimelinePlugin_lib:
+    name: opTimelinePlugin_lib
+    files: [] # disable sfAutoload

@@ -1,0 +1,21 @@
+{
+    "name": "upsilon/op-timeline-plugin",
+    "version": "2.0.0-dev",
+    "type": "symfony1-plugin",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/upsilon/opTimelinePlugin",
+    "authors": [
+        {
+            "name": "Kimura Youichi",
+            "email": "kim.upsilon@bucyou.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TimelinePlugin\\": "lib/"
+        }
+    },
+    "require": {
+        "composer/installers": "*"
+    }
+}
