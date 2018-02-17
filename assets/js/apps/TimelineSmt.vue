@@ -1,13 +1,13 @@
 <template>
   <div class="timeline-app">
-    <Post />
+    <PostList />
   </div>
 </template>
 
 <script>
-import Post from '../components/smt/Post.vue';
+import PostList from '../components/smt/PostList.vue';
 
 export default {
-  components: { Post },
+  components: { PostList },
 };
 </script>
