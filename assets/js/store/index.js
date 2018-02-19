@@ -31,6 +31,9 @@ const state = {
     'post-1': {
       postId: 'post-1',
       activityId: 1,
+      commentsOrder: [
+        'comment-1',
+      ],
     },
   },
   comments: {
@@ -39,6 +42,10 @@ const state = {
       activityId: 2,
     },
   },
+
+  postsOrder: [
+    'post-1',
+  ],
 };
 
 export default new Vuex.Store({

@@ -26,9 +26,16 @@
 
 <script>
 export default {
+  props: {
+    commentId: {
+      type: String,
+      required: true,
+    },
+  },
+
   computed: {
     comment() {
-      return this.$store.state.comments['comment-1'];
+      return this.$store.state.comments[this.commentId];
     },
     activity() {
       return this.$store.state.activities[this.comment.activityId];

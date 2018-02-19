@@ -1,6 +1,9 @@
 <template>
   <div class="post-list">
-    <Post />
+    <Post
+      v-for="post in orderedPosts"
+      :key="post.postId"
+      :post-id="post.postId" />
 
     <div
       v-if="loading"
@@ -26,6 +29,13 @@ export default {
     return {
       loading: false,
     };
+  },
+
+  computed: {
+    orderedPosts() {
+      return this.$store.state.postsOrder
+        .map(postId => this.$store.state.posts[postId]);
+    },
   },
 };
 </script>

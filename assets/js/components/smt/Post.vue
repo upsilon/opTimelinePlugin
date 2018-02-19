@@ -47,7 +47,11 @@
 
     <div class="comment-list">
       <template v-if="!collapseCommentList">
-        <Comment />
+        <Comment
+          v-for="comment in orderedComments"
+          :key="comment.commentId"
+          :comment-id="comment.commentId" />
+
         <form class="comment-form">
           <input
             class="comment-form-input-body"
@@ -73,6 +77,13 @@ import Comment from './Comment.vue';
 export default {
   components: { Comment },
 
+  props: {
+    postId: {
+      type: String,
+      required: true,
+    },
+  },
+
   data() {
     return {
       collapseCommentList: false,
@@ -81,13 +92,17 @@ export default {
 
   computed: {
     post() {
-      return this.$store.state.posts['post-1'];
+      return this.$store.state.posts[this.postId];
     },
     activity() {
       return this.$store.state.activities[this.post.activityId];
     },
     isProtected() {
       return this.activity.public_status === 'friend' || this.activity.public_status === 'private';
+    },
+    orderedComments() {
+      return this.post.commentsOrder
+        .map(commentId => this.$store.state.comments[commentId]);
     },
   },
 };
