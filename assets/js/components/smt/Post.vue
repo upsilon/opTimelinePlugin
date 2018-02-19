@@ -76,21 +76,16 @@ export default {
   data() {
     return {
       collapseCommentList: false,
-      activity: {
-        id: 2,
-        body_html: 'ててて',
-        public_status: 'friend',
-        created_at: 'Thu, 15 Feb 2018 04:30:59 +0900',
-        member: {
-          name: 'OpenPNE 君',
-          profile_url: 'http://v39.localhost/member/1',
-          profile_image: 'http://v39.localhost/images/no_image.gif',
-        },
-      },
     };
   },
 
   computed: {
+    post() {
+      return this.$store.state.posts['post-1'];
+    },
+    activity() {
+      return this.$store.state.activities[this.post.activityId];
+    },
     isProtected() {
       return this.activity.public_status === 'friend' || this.activity.public_status === 'private';
     },
