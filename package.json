@@ -6,6 +6,8 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
+    "build": "parcel build assets/js/packs/* -d web/js/",
+    "watch": "parcel watch assets/js/packs/* -d web/js/ --no-hmr",
     "lint": "eslint --ext js,vue assets/js/",
     "dev": "parcel assets/dev.html -d .dev/"
   },

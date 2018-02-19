@@ -1,0 +1,3 @@
+timelineGadget_no_default:
+  url: /timelineGadget/*
+  params: { module: default, action: error }
