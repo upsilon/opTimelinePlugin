@@ -1,0 +1,14 @@
+plugins:
+  - vue
+
+extends:
+  - airbnb-base
+  - plugin:vue/recommended
+
+rules:
+  vue/html-closing-bracket-newline: error
+  vue/html-closing-bracket-spacing: error
+  vue/script-indent: error
+
+parserOptions:
+  ecmaVersion: 2017
