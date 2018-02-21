@@ -13,17 +13,20 @@
         alt="Now Loading...">
     </div>
 
-    <div class="row">
-      <button class="btn btn-block post-list-loadmore">もっと読む</button>
-    </div>
+    <Button
+      class="post-list-loadmore"
+      block>
+      もっと読む
+    </Button>
   </div>
 </template>
 
 <script>
 import Post from './Post.vue';
+import Button from '../bootstrap/Button.vue';
 
 export default {
-  components: { Post },
+  components: { Post, Button },
 
   data() {
     return {

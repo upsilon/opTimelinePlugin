@@ -29,9 +29,9 @@
     <div class="post-control">
       <a href="#">コメントする</a>
       <template v-if="isProtected">
-        <span
-          class="icon-lock"
-          aria-label="🔒" />
+        <Icon
+          icon-name="lock"
+          alt="🔒" />
         <span
           class="public-flag"
           v-if="activity.public_status === 'friend'">
@@ -56,11 +56,12 @@
           <input
             class="comment-form-input-body"
             type="text">
-          <button
-            class="btn btn-primary comment-form-button-submit"
-            disabled="disabled">
+          <Button
+            class="comment-form-button-submit"
+            primary
+            disabled>
             投稿
-          </button>
+          </Button>
         </form>
       </template>
     </div>
@@ -73,9 +74,11 @@
 
 <script>
 import Comment from './Comment.vue';
+import Button from '../bootstrap/Button.vue';
+import Icon from '../bootstrap/Icon.vue';
 
 export default {
-  components: { Comment },
+  components: { Comment, Button, Icon },
 
   props: {
     postId: {
