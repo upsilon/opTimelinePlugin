@@ -46,7 +46,7 @@
     </div>
 
     <div class="comment-list">
-      <template v-if="!collapseCommentList">
+      <template v-if="!post.collapseCommentList">
         <Comment
           v-for="comment in orderedComments"
           :key="comment.commentId"
@@ -85,12 +85,6 @@ export default {
       type: String,
       required: true,
     },
-  },
-
-  data() {
-    return {
-      collapseCommentList: false,
-    };
   },
 
   computed: {

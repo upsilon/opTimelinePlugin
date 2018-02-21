@@ -6,7 +6,7 @@
       :post-id="post.postId" />
 
     <div
-      v-if="loading"
+      v-if="timeline.loading"
       class="row post-list-loading">
       <img
         src="/images/ajax-loader.gif"
@@ -28,15 +28,12 @@ import Button from '../bootstrap/Button.vue';
 export default {
   components: { Post, Button },
 
-  data() {
-    return {
-      loading: false,
-    };
-  },
-
   computed: {
+    timeline() {
+      return this.$store.state.timeline;
+    },
     orderedPosts() {
-      return this.$store.state.postsOrder
+      return this.timeline.postsOrder
         .map(postId => this.$store.state.posts[postId]);
     },
   },

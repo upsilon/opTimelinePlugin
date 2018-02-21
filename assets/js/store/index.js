@@ -31,6 +31,7 @@ const state = {
     'post-1': {
       postId: 'post-1',
       activityId: 1,
+      collapseCommentList: false,
       commentsOrder: [
         'comment-1',
       ],
@@ -42,10 +43,12 @@ const state = {
       activityId: 2,
     },
   },
-
-  postsOrder: [
-    'post-1',
-  ],
+  timeline: {
+    loading: false,
+    postsOrder: [
+      'post-1',
+    ],
+  },
 };
 
 export default new Vuex.Store({
