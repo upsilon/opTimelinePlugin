@@ -18,7 +18,7 @@
         <a
           :href="'/timeline/show/id/' + activity.id"
           class="timestamp">
-          <time>{{ activity.created_at }}</time>
+          <Timeago :time="activity.created_at" />
         </a>
       </div>
       <div
@@ -76,9 +76,12 @@
 import Comment from './Comment.vue';
 import Button from '../bootstrap/Button.vue';
 import Icon from '../bootstrap/Icon.vue';
+import Timeago from '../common/Timeago.vue';
 
 export default {
-  components: { Comment, Button, Icon },
+  components: {
+    Comment, Button, Icon, Timeago,
+  },
 
   props: {
     postId: {

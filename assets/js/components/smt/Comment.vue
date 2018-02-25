@@ -15,7 +15,7 @@
     </div>
 
     <div class="timestamp">
-      <time>{{ activity.created_at }}</time>
+      <Timeago :time="activity.created_at" />
     </div>
 
     <div
@@ -25,7 +25,11 @@
 </template>
 
 <script>
+import Timeago from '../common/Timeago.vue';
+
 export default {
+  components: { Timeago },
+
   props: {
     commentId: {
       type: String,
