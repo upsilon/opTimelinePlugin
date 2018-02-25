@@ -24,5 +24,12 @@ export default {
   setTimelineLoading(state, { loading }) {
     state.timeline.loading = loading;
   },
+
+  updateTimelineActivityIdMinMax(state, { activity }) {
+    const activityId = parseInt(activity.id.toString(), 10);
+
+    state.timeline.activityIdMin = Math.min(state.timeline.activityIdMin, activityId);
+    state.timeline.activityIdMax = Math.max(state.timeline.activityIdMax, activityId);
+  },
 };
 

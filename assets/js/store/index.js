@@ -11,6 +11,8 @@ const state = {
   posts: {},
   comments: {},
   timeline: {
+    activityIdMin: Infinity,
+    activityIdMax: -Infinity,
     loading: false,
     postsOrder: [],
   },

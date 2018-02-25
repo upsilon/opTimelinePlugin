@@ -23,6 +23,17 @@ export default {
     await dispatch('fetchTimeline', {});
   },
 
+  async fetchTimelineBackward({ state, dispatch }) {
+    const params = {};
+    const { activityIdMin } = state.timeline;
+
+    if (activityIdMin !== -Infinity) {
+      params.max_id = (activityIdMin - 1).toString();
+    }
+
+    await dispatch('fetchTimeline', params);
+  },
+
   async fetchTimeline({ commit }, searchParams) {
     commit('setTimelineLoading', { loading: true });
 
@@ -37,6 +48,7 @@ export default {
         post.collapseCommentList = replies.length === 0;
 
         commit('addPostToTimeline', { post, activity });
+        commit('updateTimelineActivityIdMinMax', { activity });
 
         replies.forEach((replyActivity) => {
           const comment = createComment(replyActivity);

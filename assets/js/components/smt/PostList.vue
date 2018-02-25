@@ -15,7 +15,8 @@
 
     <Button
       class="post-list-loadmore"
-      block>
+      block
+      @click.native="loadmore">
       もっと読む
     </Button>
   </div>
@@ -40,6 +41,12 @@ export default {
 
   async mounted() {
     await this.$store.dispatch('fetchTimelineInit');
+  },
+
+  methods: {
+    async loadmore() {
+      await this.$store.dispatch('fetchTimelineBackward');
+    },
   },
 };
 </script>
