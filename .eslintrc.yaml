@@ -6,6 +6,9 @@ extends:
   - plugin:vue/recommended
 
 rules:
+  no-param-reassign:
+    - error
+    - props: false
   vue/html-closing-bracket-newline: error
   vue/html-closing-bracket-spacing: error
   vue/script-indent: error

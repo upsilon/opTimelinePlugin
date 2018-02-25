@@ -37,6 +37,10 @@ export default {
         .map(postId => this.$store.state.posts[postId]);
     },
   },
+
+  async mounted() {
+    await this.$store.dispatch('fetchTimelineInit');
+  },
 };
 </script>
 
