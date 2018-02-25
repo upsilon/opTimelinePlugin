@@ -1,0 +1,19 @@
+ActivityData:
+  sample_activity1:
+    body: てすと
+    member_id: 1
+    public_flag: "<?= ActivityDataTable::PUBLIC_FLAG_SNS ?>"
+    created_at: "2018-02-15 04:30:08"
+
+  sample_activity2:
+    body: ててて
+    member_id: 1
+    public_flag: "<?= ActivityDataTable::PUBLIC_FLAG_FRIEND ?>"
+    created_at: "2018-02-15 04:30:59"
+
+  sample_activity3:
+    body: こめんと
+    member_id: 1
+    public_flag: "<?= ActivityDataTable::PUBLIC_FLAG_SNS ?>"
+    created_at: "2018-02-15 04:31:10"
+    InReplyTo: sample_activity2
