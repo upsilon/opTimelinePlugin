@@ -47,16 +47,21 @@ export default {
         const replies = activity.replies || [];
         post.collapseCommentList = replies.length === 0;
 
-        commit('addPostToTimeline', { post, activity });
+        commit('addActivity', { activity });
+        commit('addPost', { post });
+
+        commit('insertBottomOfTimeline', { postId: post.postId });
         commit('updateTimelineActivityIdMinMax', { activity });
 
         replies.forEach((replyActivity) => {
           const comment = createComment(replyActivity);
 
-          commit('addCommentToPost', {
-            comment,
-            activity: replyActivity,
+          commit('addActivity', { activity: replyActivity });
+          commit('addComment', { comment });
+
+          commit('insertBottomOfPostComments', {
             parentPostId: post.postId,
+            commentId: comment.commentId,
           });
         });
       });

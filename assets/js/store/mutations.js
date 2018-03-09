@@ -1,24 +1,59 @@
+import Vue from 'vue';
+
 export default {
-  addPostToTimeline(state, { post, activity }) {
-    if (post.activityId !== activity.id) {
-      throw new Error('post.activityId must equals to activity.id.');
+  addActivity(state, { activity }) {
+    const activityId = activity.id;
+
+    if (state.activities[activityId] !== undefined) {
+      throw new Error(`Duplicate activityId: ${activityId}`);
     }
 
-    state.activities[activity.id] = activity;
-    state.posts[post.postId] = post;
-
-    state.timeline.postsOrder.push(post.postId);
+    Vue.set(state.activities, activityId, activity);
   },
 
-  addCommentToPost(state, { parentPostId, comment, activity }) {
-    if (comment.activityId !== activity.id) {
-      throw new Error('comment.activityId must equals to activity.id.');
+  addPost(state, { post }) {
+    const { postId, activityId } = post;
+
+    if (state.posts[postId] !== undefined) {
+      throw new Error(`Duplicate postId: ${postId}`);
+    }
+    if (state.activities[activityId] === undefined) {
+      throw new Error(`Unknown activityId: ${activityId}`);
     }
 
-    state.activities[activity.id] = activity;
-    state.comments[comment.commentId] = comment;
+    Vue.set(state.posts, postId, post);
+  },
 
-    state.posts[parentPostId].commentsOrder.push(comment.commentId);
+  addComment(state, { comment }) {
+    const { commentId, activityId } = comment;
+
+    if (state.comments[commentId] !== undefined) {
+      throw new Error(`Duplicate commentId: ${commentId}`);
+    }
+    if (state.activities[activityId] === undefined) {
+      throw new Error(`Unknown activityId: ${activityId}`);
+    }
+
+    Vue.set(state.comments, commentId, comment);
+  },
+
+  insertBottomOfTimeline(state, { postId }) {
+    if (state.posts[postId] === undefined) {
+      throw new Error(`Unknown postId: ${postId}`);
+    }
+
+    state.timeline.postsOrder.push(postId);
+  },
+
+  insertBottomOfPostComments(state, { parentPostId, commentId }) {
+    if (state.posts[parentPostId] === undefined) {
+      throw new Error(`Unknown postId: ${parentPostId}`);
+    }
+    if (state.comments[commentId] === undefined) {
+      throw new Error(`Unknown commentId: ${commentId}`);
+    }
+
+    state.posts[parentPostId].commentsOrder.push(commentId);
   },
 
   setTimelineLoading(state, { loading }) {
