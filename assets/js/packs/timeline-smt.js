@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import Vue from 'vue';
 import VueMoment from 'vue-moment';
 import moment from 'moment';
-import 'moment/src/locale/ja';
+import 'moment/locale/ja';
 
 import TimelineSmt from '../apps/TimelineSmt.vue';
 import store from '../store';
