@@ -185,7 +185,7 @@ export default {
       height: 15px;
       padding: 2px;
       margin-bottom: 0px;
-      margin-right: 2px;
+      margin-right: 4px;
     }
 
     .comment-form-button-submit {
