@@ -6,10 +6,9 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "build": "parcel build assets/js/packs/* -d web/js/",
-    "watch": "parcel watch assets/js/packs/* -d web/js/ --no-hmr",
-    "lint": "eslint --ext js,vue assets/js/",
-    "dev": "parcel assets/dev.html -d .dev/"
+    "build": "webpack --mode production --progress -p",
+    "watch": "webpack --mode development --progress --watch",
+    "lint": "eslint --ext js,vue assets/js/"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -32,10 +31,10 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-vue": "^4.2.2",
     "node-sass": "^4.7.2",
-    "parcel-bundler": "^1.5.1",
-    "parcel-plugin-vue": "^1.5.0",
     "sass-loader": "^6.0.6",
     "vue-loader": "^14.1.1",
-    "vue-template-compiler": "^2.5.13"
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
   }
 }
